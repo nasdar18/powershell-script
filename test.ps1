@@ -1,3 +1,3 @@
-$process = Start-Process notepad -PassThru
-$process.WaitForInputIdle()
-Write-Host "Notepad has been opened and is running with PID: $($process.Id)."
+$localPath = "$env:TEMP\system-info.txt"
+Get-ComputerInfo | Out-File -FilePath $localPath -Force
+Write-Host "System info collected and stored at: $localPath"
